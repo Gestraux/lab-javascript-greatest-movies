@@ -23,9 +23,9 @@ function scoresAverage(moviesArray) {
         return 0;
     }
     else {
-        const sumScore = moviesArray.reduce((acc, eachMovie) => {
-            if (eachMovie.score) {
-                return acc + eachMovie.score
+        const sumScore = moviesArray.reduce((acc, currentElement) => {
+            if (currentElement.score) {
+                return acc + currentElement.score
             }
             else {
                 return acc
@@ -81,9 +81,9 @@ function orderAlphabetically(moviesArray) {
         else {
             return 0;
         }
-    })
-    const sorted = sortedTitles.slice(0, 20);
-        return sorted;
+    });
+    const sorted = sortedTitles.slice(0, 20).map((movie) => (movie.title));
+    return sorted;
 }
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
